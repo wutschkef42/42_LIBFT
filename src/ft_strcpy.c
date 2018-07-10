@@ -1,25 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memcpy.c                                        :+:      :+:    :+:   */
+/*   ft_strcpy.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: wutschkef <fwutschk@student.42.fr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/06/17 18:57:16 by wutschkef         #+#    #+#             */
-/*   Updated: 2017/06/27 00:21:38 by fwutschk         ###   ########.fr       */
+/*   Created: 2017/06/17 19:55:39 by wutschkef         #+#    #+#             */
+/*   Updated: 2017/06/17 19:56:47 by wutschkef        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_memcpy(void *dst, const void *src, size_t n)
+char	*ft_strcpy(char *dst, const char *src)
 {
-	char	*src_c;
-	char	*dst_c;
+	int i;
 
-	src_c = (char *)src;
-	dst_c = (char *)dst;
-	while (n--)
-		*dst_c++ = *src_c++;
+	if (!src)
+		return (NULL);
+	i = 0;
+	while (src[i])
+	{
+		dst[i] = src[i];
+		i++;
+	}
+	dst[i] = '\0';
 	return (dst);
 }

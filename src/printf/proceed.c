@@ -1,23 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strdup.c                                        :+:      :+:    :+:   */
+/*   proceed.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: wutschkef <fwutschk@student.42.fr>         +#+  +:+       +#+        */
+/*   By: wutschkef <felix.wutschke@gmail.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/06/17 19:51:53 by wutschkef         #+#    #+#             */
-/*   Updated: 2017/06/17 19:55:26 by wutschkef        ###   ########.fr       */
+/*   Created: 2017/12/22 20:10:17 by wutschkef         #+#    #+#             */
+/*   Updated: 2017/12/22 20:10:23 by wutschkef        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "ft_printf.h"
 
-char	*ft_strdup(const char *s1)
+int		proceed(const char *format, size_t len, int ok, va_list params)
 {
-	char	*dup;
-
-	if (!(dup = (char *)malloc(sizeof(char) * (ft_strlen(s1) + 1))))
-		return (NULL);
-	ft_strcpy(dup, s1);
-	return (dup);
+	if (ok && *format == '%')
+		return (dispatch(parse_cspec(format, len), params));
+	else
+		return (ft_putstr(format, len));
 }

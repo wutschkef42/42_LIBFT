@@ -1,23 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlen.c                                        :+:      :+:    :+:   */
+/*   pf_atoi.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: wutschkef <fwutschk@student.42.fr>         +#+  +:+       +#+        */
+/*   By: wutschkef <felix.wutschke@gmail.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/06/17 19:50:08 by wutschkef         #+#    #+#             */
-/*   Updated: 2017/06/27 00:47:33 by fwutschk         ###   ########.fr       */
+/*   Created: 2017/12/22 20:23:07 by wutschkef         #+#    #+#             */
+/*   Updated: 2017/12/22 20:23:30 by wutschkef        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "ft_printf.h"
 
-size_t	ft_strlen(const char *s)
+int	pf_atoi(const char *str, int *addr, size_t *i)
 {
-	const char	*t;
+	int	nbr;
 
-	t = s;
-	while (*t)
-		t++;
-	return (t - s);
+	nbr = 0;
+	while (ft_isdigit(str[*i]))
+	{
+		nbr = nbr * 10 + (str[*i] - '0');
+		(*i)++;
+	}
+	*addr = nbr;
+	return (0);
 }
